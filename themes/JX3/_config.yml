@@ -124,7 +124,9 @@ menu:
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
-  七秀: qixiu || fa fa-bolt
+  #七秀: qixiu || fa fa-bolt
+  冰心: /bingxin || fa fa-bolt
+
 
 
 # Enable / Disable menu icons / item badges.
@@ -356,29 +358,30 @@ codeblock:
   # Code Highlight theme
   # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic
   # See: https://github.com/chriskempson/tomorrow-theme
-  highlight_theme: normal
+  highlight_theme: night bright
   # Add copy button on codeblock
   copy_button:
-    enable: false
+    enable: true
     # Show text copy result.
-    show_result: false
+    show_result: true
     # Available values: default | flat | mac
-    style:
+    style: default
 
 back2top:
   enable: true
   # Back to top in sidebar.
   sidebar: false
   # Scroll percent label in b2t button.
-  scrollpercent: false
+  scrollpercent: true
 
 # Reading progress bar
 reading_progress:
-  enable: false
+  enable: true
   # Available values: top | bottom
   position: top
+  #color: "#37c6c0"
   color: "#37c6c0"
-  height: 3px
+  height: 1px
 
 # Bookmark Support
 bookmark:
