@@ -1,7 +1,4 @@
 ---
-title: 冰心诀
-date: 2020-07-22 22:12:37
+title: qixiu
+date: 2020-07-25 15:48:28
 ---
-
-[![](/images/1.gif)](/bingxin/ "markdown")
-[![](/images/1.gif)](/ "markdown")
