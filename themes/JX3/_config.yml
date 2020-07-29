@@ -125,9 +125,12 @@ menu:
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
   #七秀: qixiu || fa fa-bolt
-  冰心: /bingxin || fa fa-bolt
+  七秀: /bingxin || fa fa-bolt
   万花: /wanhua || fa fa-leaf
   五毒: /wudu || fa fa-bug
+  长歌: /changge || fa fa-book
+  天策: /tiance || fa fa-flag
+  少林: /shaolin || fa fa-lightbulb
 
 
 
