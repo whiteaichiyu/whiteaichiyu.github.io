@@ -1,5 +1,5 @@
 ---
-title: 万花谷
+title: 万花
 date: 2020-07-25 15:48:33
 ---
 {% img [fullimage] /images/wanhua-foot.jpg [title 万花 [alt text]] %}
