@@ -20,4 +20,5 @@ tags:
 |	|	|疏楼|	|
 |	|	|顺天（乱T散人，团里演员多）|	|
 |	|	|执念|	|
-|	|	|   |   |
+
+{% img [fullimage] /images/all-foot.jpg [title 全门派 [alt text]] %}
