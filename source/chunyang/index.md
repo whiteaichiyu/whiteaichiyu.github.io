@@ -1,5 +1,5 @@
 ---
-title: 纯阳宫
+title: 纯阳
 date: 2020-07-25 15:49:05
 ---
 {% img [fullimage] /images/chunyang-foot.jpg [title 纯阳 [alt text]] %}
