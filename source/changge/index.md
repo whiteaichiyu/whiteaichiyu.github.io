@@ -1,5 +1,5 @@
 ---
-title: 长歌门
+title: 长歌
 date: 2020-07-25 15:48:42
 ---
 {% img [fullimage] /images/changge-foot.jpg [title 长歌 [alt text]] %}

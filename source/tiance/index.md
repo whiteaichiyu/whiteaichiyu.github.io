@@ -1,5 +1,5 @@
 ---
-title: 天策府
+title: 天策
 date: 2020-07-25 15:48:46
 ---
 {% img [fullimage] /images/tiance-foot.jpg [title 七秀 [alt text]] %}

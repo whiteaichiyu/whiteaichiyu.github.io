@@ -1,5 +1,5 @@
 ---
-title: 五仙教
+title: 五毒
 date: 2020-07-25 15:48:37
 ---
 {% img [fullimage] /images/wudu-foot.jpg [title 五毒 [alt text]] %}

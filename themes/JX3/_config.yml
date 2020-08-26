@@ -124,8 +124,7 @@ menu:
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
-  #七秀: qixiu || fa fa-bolt
-  七秀: /bingxin || fa fa-bolt
+  七秀: /qixiu || fa fa-bolt
   万花: /wanhua || fa fa-leaf
   五毒: /wudu || fa fa-bug
   长歌: /changge || fa fa-book
@@ -138,7 +137,7 @@ menu:
   藏剑: /cangjian || fa fa-recycle
   丐帮: /gaibang || fa fa-beer
   霸刀: /badao || fa fa-industry
-
+  蓬莱: /penglai || fa fa-umbrella
 
 
 # Enable / Disable menu icons / item badges.

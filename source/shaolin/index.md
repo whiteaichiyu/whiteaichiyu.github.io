@@ -1,5 +1,5 @@
 ---
-title: 少林寺
+title: 少林
 date: 2020-07-25 15:48:51
 ---
 {% img [fullimage] /images/shaolin-foot.jpg [title 少林 [alt text]] %}
