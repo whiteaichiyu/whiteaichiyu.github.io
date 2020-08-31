@@ -138,7 +138,7 @@ menu:
   丐帮: /gaibang || fa fa-beer
   霸刀: /badao || fa fa-industry
   蓬莱: /penglai || fa fa-umbrella
-
+  凌雪: /lingxue || fa fa-anchor
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
