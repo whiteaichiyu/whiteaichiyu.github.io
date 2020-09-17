@@ -22,7 +22,7 @@ date: 2020-07-25 15:49:05
 ### 急速：19/828
 {% codeblock 输出： %}
 /cast [nobuff:破苍穹] 破苍穹
-/cast 六合独尊
+/cast [qidian<8] 六合独尊
 /cast [nobuff:气剑|bufftime:气剑<1.7&nobuff:紫气东来] 万世不竭
 /cast [qidian>7] 两仪化形
 /cast 四象轮回
