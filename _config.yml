@@ -97,10 +97,15 @@ theme: JX3
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
+# deploy:
+  # type: git
+  # repo: https://github.com/whiteaichiyu/whiteaichiyu.github.io
+  # branch: master
 deploy:
   type: git
-  repo: https://github.com/whiteaichiyu/whiteaichiyu.github.io
-  branch: master
+  repo: 
+    github: git@github.com:whiteaichiyu/whiteaichiyu.github.io.git,master
+    coding: git@e.coding.net:whiteaichiyu/whiteaichiyu/whiteaichiyu.git,master
 
 algolia:
   applicationID: "V4MIQS4IRJ"
