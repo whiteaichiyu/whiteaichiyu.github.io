@@ -97,18 +97,23 @@ theme: JX3
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
+# deploy:
+  # type: git
+  # repo: https://github.com/whiteaichiyu/whiteaichiyu.github.io
+  # branch: master
 deploy:
   type: git
-  repo: https://github.com/whiteaichiyu/whiteaichiyu.github.io
-  branch: master
+  repo: 
+    github: git@github.com:whiteaichiyu/whiteaichiyu.github.io.git,master
+    coding: git@e.coding.net:whiteaichiyu/whiteaichiyu/whiteaichiyu.git,master
 
-#algolia:
-  #applicationID: "KZB98CMXM2"
-  #apiKey: "e013f4030f29712fa9770179ff292f57"
-  #indexName: "jx3wmv"
+algolia:
+  applicationID: "V4MIQS4IRJ"
+  apiKey: "cd65f699d5a953df961bc08c4faaa0ef"
+  indexName: "jx3wmv"
 
-search:
-  path: search.xml
-  field: post
-  format: html
-  limit: 10000
+# search:
+  # path: search.xml
+  # field: post
+  # format: html
+  # limit: 10000
