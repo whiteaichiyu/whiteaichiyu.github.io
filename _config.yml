@@ -106,7 +106,7 @@ deploy:
   repo: 
     github: git@github.com:whiteaichiyu/whiteaichiyu.github.io.git,master
     coding: git@e.coding.net:whiteaichiyu/whiteaichiyu/whiteaichiyu.git,master
-
+    #coding: git@e.coding.net:whiteaichiyu/whiteaichiyu2/whiteaichiyu.git,master
 algolia:
   applicationID: "V4MIQS4IRJ"
   apiKey: "cd65f699d5a953df961bc08c4faaa0ef"
