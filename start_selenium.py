@@ -1,5 +1,8 @@
 from selenium import webdriver
-browser = webdriver.Chrome()
+from selenium.webdriver import ChromeOptions
+option = ChromeOptions()
+option.add_argument("--headless")#指定无头模式
+browser = webdriver.Chrome(options=option)
 
 browser.get('https://www.jx3box.com/macro/10543')
 browser.implicitly_wait(200)
