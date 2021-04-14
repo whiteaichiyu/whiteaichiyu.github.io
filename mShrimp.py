@@ -27,6 +27,12 @@ acupoint_eles = browser.find_elements_by_xpath("/html/body/div[@id='app']/main[@
 speed_ele = browser.find_element_by_xpath("/html/body/div[@id='app']/main[@class='c-main']/div[@class='m-single-box']/div[@class='m-single-prepend']/div[@class='m-single-macro']/div[@class='el-tabs el-tabs--card el-tabs--top']/div[@class='el-tabs__content']/div[@id='pane-0']/div[@class='u-speed']")
 #宏名元素列表定位
 macroname_eles = browser.find_elements_by_xpath("/html/body/div[@id='app']/main[@class='c-main']/div[@class='m-single-box']/div[@class='m-single-prepend']/div[@class='m-single-macro']/div[@class='el-tabs el-tabs--card el-tabs--top']/div[@class='el-tabs__header is-top']/div[@class='el-tabs__nav-wrap is-top']/div[@class='el-tabs__nav-scroll']/div[@class='el-tabs__nav is-top']/div")
+#正文最长路径
+body_xpath = "/html/body/div[@id='app']/main[@class='c-main']/div[@class='m-single-box']/div[@class='m-single-post']/div[@class='m-single-content']/div[@class='c-article-box']/div[@id='c-article']/div[@id='c-article-part1']/p/span/span/img"
+#body_eles2 = body_xpath+"[%d]" %(index)
+#截取最长路径截取找到src分布位置
+body_eles = browser.find_elements_by_xpath(body_xpath+" | "+body_xpath[0:211]+"/img")
+
 print("原作者："+author_ele.text)
 #停更天数计算---
 today = time.time()
@@ -67,7 +73,7 @@ for index2 in range(len(macroname_eles)):
     f.write('{% codeblock '+macroname_eles[index2].text+' %}\n')
     print(macroname_eles[index2].text)
     #宏语句元素列表定位
-    macro_eles = browser.find_elements_by_xpath("/html/body/div[@id='app']/main[@class='c-main']/div[@class='m-single-box']/div[@class='m-single-prepend']/div[@class='m-single-macro']/div[@class='el-tabs el-tabs--card el-tabs--top']/div[@class='el-tabs__content']/div[@id='pane-",index2,"']/div[@class='u-macro macro-box withUsage']/div[@class='u-macro-inner']/div[@class='w-jx3macro']/ol/li")
+    macro_eles = browser.find_elements_by_xpath("/html/body/div[@id='app']/main[@class='c-main']/div[@class='m-single-box']/div[@class='m-single-prepend']/div[@class='m-single-macro']/div[@class='el-tabs el-tabs--card el-tabs--top']/div[@class='el-tabs__content']/div[@id='pane-%d']/div[@class='u-macro macro-box withUsage']/div[@class='u-macro-inner']/div[@class='w-jx3macro']/ol/li")%(index2)
     for index in range(len(macro_eles)):
         print(macro_eles[index].text)
         f.write(macro_eles[index].text+'\n')
@@ -75,5 +81,14 @@ for index2 in range(len(macroname_eles)):
 f.write('\n')
 #循环打法
 f.write('### 循环打法：\n')
+#遍历正文所有/p值，按顺序写入文字与图片src
+for index in range(len(body_eles)):
+    bodytext_eles = browser.find_elements_by_xpath(body_xpath[0:211])
+    for index2 in range(len(bodytext_eles)):
+        if len(bodytext_eles[index2].text) > 0:
+            #print(bodytext_eles[index2].text)
+            f.write(bodytext_eles[index2].text+'\n') 
+    #print(body_eles[index].get_attribute("src"))
+    f.write('![avatar]('+body_eles[index].get_attribute("src")+')\n')
 
 browser.quit()
