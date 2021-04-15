@@ -64,7 +64,7 @@ f.write('\n')
 f.write('---\n')
 #图片路径
 f.write('{% img [fullimage] /images/qixiu-foot.jpg [title 七秀 [alt text]] %}\n')
-f.write('## 心法：冰心诀 （新妆流）\n')
+f.write('## 心法：冰心诀\n')
 f.write('\n')
 f.write('**版本：'+version_ele.text+uptime_ele.text+'**\n')
 f.write('\n')
@@ -138,13 +138,27 @@ f.write('\n')
 #循环打法
 f.write('### 循环打法：\n')
 #遍历正文所有/p值，按顺序写入文字与图片src
-for bodyindex in range(len(body_eles)):
-    bodytext_eles = browser.find_elements_by_xpath(body_xpath[0:211])
-    for bodyindex2 in range(len(bodytext_eles)):
-        if len(bodytext_eles[bodyindex2].text) > 0:
-            #print(bodytext_eles[index2].text)
-            f.write(bodytext_eles[bodyindex2].text+'\n') 
-    #print(body_eles[index].get_attribute("src"))
-    f.write('![avatar]('+body_eles[bodyindex].get_attribute("src")+')\n')
+
+# for bodyindex in range(len(body_eles)):
+#     bodytext_eles = browser.find_elements_by_xpath(body_xpath[0:211])
+#     for bodyindex2 in range(len(bodytext_eles)):
+#         if len(bodytext_eles[bodyindex2].text) > 0:
+#             print(bodytext_eles[index2].text)
+#             f.write(bodytext_eles[bodyindex2].text+'\n') 
+#     print(body_eles[index].get_attribute("src"))
+#     f.write('![avatar]('+body_eles[bodyindex].get_attribute("src")+')\n')
+bodyindex = 0
+bodytext_eles = browser.find_elements_by_xpath(body_xpath[0:211])
+for bodyindex2 in range(len(bodytext_eles)):
+    if len(bodytext_eles[bodyindex2].text) > 0:
+        #print(bodytext_eles[index2].text)
+        f.write(bodytext_eles[bodyindex2].text+'\n')
+    elif bodyindex < len(body_eles):
+        f.write('![avatar]('+body_eles[bodyindex].get_attribute("src")+')\n')
+        bodyindex = bodyindex+1
+
+
+
+
 
 browser.quit()
