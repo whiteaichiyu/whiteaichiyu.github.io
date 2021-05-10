@@ -156,7 +156,7 @@ for bodyindex2 in range(len(bodytext_eles)):
     elif bodyindex < len(body_eles):
         f.write('![avatar]('+body_eles[bodyindex].get_attribute("src")+')\n')
         bodyindex = bodyindex+1
-
+#test
 
 
 
