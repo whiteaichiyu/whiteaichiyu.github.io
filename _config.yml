@@ -107,13 +107,13 @@ deploy:
     github: git@github.com:whiteaichiyu/whiteaichiyu.github.io.git,master
     coding: git@e.coding.net:whiteaichiyu/whiteaichiyu/whiteaichiyu.git,master
     repo: root@47.117.72.13:/var/repo/blog.git,master
-algolia:
-  applicationID: "V4MIQS4IRJ"
-  apiKey: "cd65f699d5a953df961bc08c4faaa0ef"
-  indexName: "jx3wmv"
+# algolia:
+#   applicationID: "V4MIQS4IRJ"
+#   apiKey: "cd65f699d5a953df961bc08c4faaa0ef"
+#   indexName: "jx3wmv"
 
-# search:
-  # path: search.xml
-  # field: post
-  # format: html
-  # limit: 10000
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
