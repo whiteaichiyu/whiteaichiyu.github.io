@@ -55,7 +55,7 @@ def upMacro(menpai):
     
     if unupday<10:
         print("作者已停更",unupday,"天")
-        os.system('cp source\\'+menpai.dirn+'\index.md source_bak\\'+menpai.dirn+'\index'+time.strftime("%Y-%m-%d", time.localtime()) +'.md')
+        os.system('cp source/'+menpai.dirn+'/index.md source_bak/'+menpai.dirn+'/index'+time.strftime("%Y-%m-%d", time.localtime()) +'.md')
     elif unupday>30:
         print('该作者已停更'+unupday+'天，建议换作者')
         browser.quit()
