@@ -6,6 +6,7 @@ import time
 import os
 
 option = ChromeOptions()
+#option.add_argument("--headless")#指定无头模式
 option.add_argument('--start-maximized')#浏览器最大化
 option.add_experimental_option('excludeSwitches',['enable-automation'])#防止被识别
 browser = webdriver.Chrome(options=option)
