@@ -1,6 +1,6 @@
 ---
 title: 七秀
-date: 2021-05-24 04:22:16
+date: 2021-05-24 04:29:54
 ---
 {% img [fullimage] /images/qixiu-foot.jpg [title 七秀 [alt text]] %}
 ## 心法：冰心诀
