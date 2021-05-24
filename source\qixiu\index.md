@@ -1,6 +1,6 @@
 ---
 title: 七秀
-date: 2021-05-25 00:10:47
+date: 2021-05-25 00:32:59
 ---
 {% img [fullimage] /images/qixiu-foot.jpg [title 七秀 [alt text]] %}
 ## 心法：冰心诀
@@ -94,3 +94,51 @@ https://pan.baidu.com/s/1lg2TLQjmSSEyfpnFDe4C1w  提取码：02pv
 PS：另外附加一个懒人一键宏，不追求极限dps的可以考虑一下，2.06玳弦的情况下dps不会低太多，由于延迟影响不建议1.88玳弦
 
 ---
+## 心法：云裳心经
+
+**版本：怒海争锋2021-05-11**
+
+### 秘籍：
+秘籍：回雪飘摇：3疗效1距离
+翔鸾舞柳：2疗效2距离
+上元点鬟：1疗效3距离
+王母挥袂：2疗效2会心
+繁音急节：3减cd1满堂
+心鼓弦：3减cd1距离（配合璇妗奇穴可达到5分钟战复）
+天地低昂：2减cd1持续时间1回蓝
+江海凝光：3距离1伤害
+
+### 急速：43,3684,8009
+
+### 奇穴：朝露 盛夏 辞致 瑰姿 乞巧 散余霞 晚晴 碎冰 霜风 秋深 垂眉 九微飞花 
+{% codeblock 云裳 %}
+/cast 繁音急节
+/fcast [life<0.7] 九微飞花
+/cast [tnobuff:上元点鬟] 上元点鬟
+/cast [tnobuff:翔舞] 翔鸾舞柳
+/fcast [life<0.6] 风袖低昂
+/cast 王母挥袂
+/cast 回雪飘摇
+{% endcodeblock %}
+
+{% codeblock 奶NPC %}
+/cast 繁音急节
+/cast 九微飞花
+/cast 风袖低昂
+/cast 王母挥袂
+/fcast [tnobuff:上元点鬟] 上元点鬟
+/fcast [tnobuff:翔舞] 翔鸾舞柳
+/cast 回雪飘摇
+{% endcodeblock %}
+### 奇穴：冰华 双鸾 枕上 瑰姿 乞巧 晚阳 心问 吉光 霜风 秋深 垂眉 红隙 
+{% codeblock 单奶自己 %}
+/cast [life<0.6] 繁音急节
+/cast [tnobuff:上元点鬟] 上元点鬟
+/cast [tnobuff:翔舞] 翔鸾舞柳
+/fcast [life<0.7] 风袖低昂
+/fcast [life<0.8] 王母挥袂
+/cast 回雪飘摇
+{% endcodeblock %}
+
+### 循环打法：
+2021.04.14 世界boss挨了毒打，更新宏。
