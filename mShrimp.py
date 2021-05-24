@@ -102,12 +102,7 @@ def upMacro(menpai,menpai2,fmode):
         canusestracupoint = "/html/body/div[@id='app']/main[@class='c-main']/div[@class='m-single-box']/div[@class='m-single-prepend']/div[@class='m-single-macro']/div[@class='el-tabs el-tabs--card el-tabs--top']/div[@class='el-tabs__content']/div[@id='pane-%d']/div[@id='talent-box-%d']/div[@class='w-qixue-box false']/ul[@class='w-qixue-clist']/li[@class='w-qixue-clist-item w-qixue-is_skill']/span[@class='u-title']" % (index2,index2)
         acupoint_eles = browser.find_elements_by_xpath(stracupoint+"|"+canusestracupoint)
 
-        print('len=',len(acupoint_eles),'acu=',acupoint_eles)
         for acu_index in range(len(acupoint_eles)):
-            print('its acu no',acu_index)
-            print('222'+acupoint_eles[acu_index].text)
-            print('奇穴2维数组：',acupoint_eless)
-            print('111',acupoint_eless[index2][acu_index])
             acupoint_eless[index2][acu_index] = acupoint_eles[acu_index].text
         print(acupoint_eless)
         newacu = 0
@@ -189,6 +184,7 @@ def upMacro(menpai,menpai2,fmode):
         browser.quit()
     else:
         f.write('\n---\n')
+    f.close()
     #迭代调用，用于追加心法2，无心法2则参数天None
     if menpai2 != None :
         upMacro(menpai2,None,'a')
