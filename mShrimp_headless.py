@@ -61,12 +61,8 @@ def upMacro(menpai,menpai2,fmode):
         #os.system('cp source\\'+menpai.dirn+'\index.md source_bak\\'+menpai.dirn+'\index'+time.strftime("%Y-%m-%d", time.localtime()) +'.md')
     elif unupday>30:
         print('该作者已停更',unupday,'天，建议换作者')
-        browser.quit()
-        return
     else:
         print("作者已停更",unupday,"天")
-        browser.quit()
-        return
     
     #---
     #打开被同步文件
@@ -189,6 +185,7 @@ def upMacro(menpai,menpai2,fmode):
         browser.quit()
     else:
         f.write('\n---\n')
+    f.close()
     #迭代调用，用于追加心法2，无心法2则参数天None
     if menpai2 != None :
         upMacro(menpai2,None,'a')
