@@ -1,6 +1,6 @@
 ---
 title: 七秀
-date: 2021-05-24 03:04:37
+date: 2021-05-25 00:10:47
 ---
 {% img [fullimage] /images/qixiu-foot.jpg [title 七秀 [alt text]] %}
 ## 心法：冰心诀
@@ -92,3 +92,5 @@ https://pan.baidu.com/s/1lg2TLQjmSSEyfpnFDe4C1w  提取码：02pv
 天地低昂 2减cd 1持续
  
 PS：另外附加一个懒人一键宏，不追求极限dps的可以考虑一下，2.06玳弦的情况下dps不会低太多，由于延迟影响不建议1.88玳弦
+
+---

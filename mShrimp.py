@@ -6,6 +6,7 @@ import time
 import os
 
 option = ChromeOptions()
+#option.add_argument("--no-sandbox")#无沙箱模式
 #option.add_argument("--headless")#指定无头模式
 option.add_argument('--start-maximized')#浏览器最大化
 option.add_experimental_option('excludeSwitches',['enable-automation'])#防止被识别
@@ -19,7 +20,7 @@ def NodeExists(xpath):
     except:
         return False
 
-def upMacro(menpai):
+def upMacro(menpai,menpai2,fmode):
     #载入网页
     browser.get('https://www.jx3box.com/macro/'+menpai.pageID)
     #隐式等待10秒
@@ -35,8 +36,9 @@ def upMacro(menpai):
     macroname_eles = browser.find_elements_by_xpath("/html/body/div[@id='app']/main[@class='c-main']/div[@class='m-single-box']/div[@class='m-single-prepend']/div[@class='m-single-macro']/div[@class='el-tabs el-tabs--card el-tabs--top']/div[@class='el-tabs__header is-top']/div[@class='el-tabs__nav-wrap is-top']/div[@class='el-tabs__nav-scroll']/div[@class='el-tabs__nav is-top']/div")
     #奇穴元素xpath值
     stracupoint = "/html/body/div[@id='app']/main[@class='c-main']/div[@class='m-single-box']/div[@class='m-single-prepend']/div[@class='m-single-macro']/div[@class='el-tabs el-tabs--card el-tabs--top']/div[@class='el-tabs__content']/div[@id='pane-%d']/div[@id='talent-box-%d']/div[@class='w-qixue-box false']/ul[@class='w-qixue-clist']/li[@class='w-qixue-clist-item']/span[@class='u-title']" % (0,0)
+    canusestracupoint = "/html/body/div[@id='app']/main[@class='c-main']/div[@class='m-single-box']/div[@class='m-single-prepend']/div[@class='m-single-macro']/div[@class='el-tabs el-tabs--card el-tabs--top']/div[@class='el-tabs__content']/div[@id='pane-%d']/div[@id='talent-box-%d']/div[@class='w-qixue-box false']/ul[@class='w-qixue-clist']/li[@class='w-qixue-clist-item w-qixue-is_skill']/span[@class='u-title']" % (0,0)
     #奇穴元素列表定位
-    acupoint_eles = browser.find_elements_by_xpath(stracupoint)
+    acupoint_eles = browser.find_elements_by_xpath(stracupoint+"|"+canusestracupoint)
     #加速元素定位
     speed_ele = browser.find_element_by_xpath("/html/body/div[@id='app']/main[@class='c-main']/div[@class='m-single-box']/div[@class='m-single-prepend']/div[@class='m-single-macro']/div[@class='el-tabs el-tabs--card el-tabs--top']/div[@class='el-tabs__content']/div[@id='pane-0']/div[@class='u-speed']")
     #正文最长路径
@@ -53,11 +55,12 @@ def upMacro(menpai):
     unupsec = today-t
     unupday = int(unupsec/60/60/24)
     
-    if unupday<10:
+    if unupday<20:
         print("作者已停更",unupday,"天")
+        #os.system('cp source/'+menpai.dirn+'/index.md source_bak/'+menpai.dirn+'/index'+time.strftime("%Y-%m-%d", time.localtime()) +'.md')
         os.system('cp source\\'+menpai.dirn+'\index.md source_bak\\'+menpai.dirn+'\index'+time.strftime("%Y-%m-%d", time.localtime()) +'.md')
     elif unupday>30:
-        print('该作者已停更'+unupday+'天，建议换作者')
+        print('该作者已停更',unupday,'天，建议换作者')
         browser.quit()
         return
     else:
@@ -67,17 +70,18 @@ def upMacro(menpai):
     
     #---
     #打开被同步文件
-    f = open('source\\'+menpai.dirn+'\index.md', 'w', encoding='utf-8')
+    f = open('source\\'+menpai.dirn+'\index.md', fmode, encoding='utf-8')
     #f = open('./source/qixiu/index.md', 'w', encoding='utf-8')
-    #主页头文件
-    f.write('---\ntitle: '+menpai.menpainame+'\n')
-    f.write('date: ')
-    formtoday = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-    f.write(formtoday)
-    f.write('\n')
-    f.write('---\n')
-    #图片路径
-    f.write('{% img [fullimage] /images/'+menpai.dirn+'-foot.jpg [title '+menpai.menpainame+' [alt text]] %}\n')
+    if fmode == 'w' :
+        #主页头文件
+        f.write('---\ntitle: '+menpai.menpainame+'\n')
+        f.write('date: ')
+        formtoday = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+        f.write(formtoday)
+        f.write('\n')
+        f.write('---\n')
+        #图片路径
+        f.write('{% img [fullimage] /images/'+menpai.dirn+'-foot.jpg [title '+menpai.menpainame+' [alt text]] %}\n')
     f.write('## 心法：'+menpai.xinfa+'\n')
     f.write('\n')
     f.write('**版本：'+version_ele.text+uptime_ele.text+'**\n')
@@ -95,9 +99,15 @@ def upMacro(menpai):
         #奇穴相关代码块
         #奇穴元素列表acupoint_eles的xpath默认地址
         stracupoint = "/html/body/div[@id='app']/main[@class='c-main']/div[@class='m-single-box']/div[@class='m-single-prepend']/div[@class='m-single-macro']/div[@class='el-tabs el-tabs--card el-tabs--top']/div[@class='el-tabs__content']/div[@id='pane-%d']/div[@id='talent-box-%d']/div[@class='w-qixue-box false']/ul[@class='w-qixue-clist']/li[@class='w-qixue-clist-item']/span[@class='u-title']" % (index2,index2)
-        acupoint_eles = browser.find_elements_by_xpath(stracupoint)
+        canusestracupoint = "/html/body/div[@id='app']/main[@class='c-main']/div[@class='m-single-box']/div[@class='m-single-prepend']/div[@class='m-single-macro']/div[@class='el-tabs el-tabs--card el-tabs--top']/div[@class='el-tabs__content']/div[@id='pane-%d']/div[@id='talent-box-%d']/div[@class='w-qixue-box false']/ul[@class='w-qixue-clist']/li[@class='w-qixue-clist-item w-qixue-is_skill']/span[@class='u-title']" % (index2,index2)
+        acupoint_eles = browser.find_elements_by_xpath(stracupoint+"|"+canusestracupoint)
 
+        print('len=',len(acupoint_eles),'acu=',acupoint_eles)
         for acu_index in range(len(acupoint_eles)):
+            print('its acu no',acu_index)
+            print('222'+acupoint_eles[acu_index].text)
+            print('奇穴2维数组：',acupoint_eless)
+            print('111',acupoint_eless[index2][acu_index])
             acupoint_eless[index2][acu_index] = acupoint_eles[acu_index].text
         print(acupoint_eless)
         newacu = 0
@@ -119,6 +129,10 @@ def upMacro(menpai):
                 elif index2 > 0 and acupoint_eless[acu_index2][acu_index] != acupoint_eles[acu_index].text and acupoint_eles[acu_index].text != 0:
                     print("该层奇穴与宏%d奇穴%d不一致,此奇穴将新写一份" %(acu_index2+1,acu_index+1))
                     newacu = 1
+                # elif index2 > 0 :
+                #     print('空值略过')
+                #     newacu = 3
+                #     break
                     
         if newacu == 1 or index2 == 0:
             print("此为存在不一致或是第一份奇穴，将新写一份")
@@ -171,8 +185,13 @@ def upMacro(menpai):
             f.write('![avatar]('+body_eles[bodyindex].get_attribute("src")+')\n')
             bodyindex = bodyindex+1
     #test
-    browser.quit()
-
+    if fmode == 'a':
+        browser.quit()
+    else:
+        f.write('\n---\n')
+    #迭代调用，用于追加心法2，无心法2则参数天None
+    if menpai2 != None :
+        upMacro(menpai2,None,'a')
 class menpaixinfa:
     def __init__(self,pageID,dirn,menpainame,xinfa,miji):
         self.dirn = dirn
@@ -182,5 +201,5 @@ class menpaixinfa:
         self.miji = miji
 
 bingxin = menpaixinfa('10800','qixiu','七秀','冰心诀','玳弦急曲—3伤害+1距离\n剑气长江—1回剑舞+1减CD，其他点伤害会心距离均可\n江海凝光—2伤害+1会心+1距离\n繁音急节—3减CD+1满堂会心\n天地低昂—2减CD+1持续时间，另一本随意\n心鼓弦——3减读条+1距离\n')
-
-upMacro(bingxin)
+yunshang = menpaixinfa('22084','qixiu','七秀','云裳心经','秘籍：回雪飘摇：3疗效1距离\n翔鸾舞柳：2疗效2距离\n上元点鬟：1疗效3距离\n王母挥袂：2疗效2会心\n繁音急节：3减cd1满堂\n心鼓弦：3减cd1距离（配合璇妗奇穴可达到5分钟战复）\n天地低昂：2减cd1持续时间1回蓝\n江海凝光：3距离1伤害\n')
+upMacro(bingxin,yunshang,'w')#参数：门派心法1（必填）,门派心法2（可选,没有就填None）,写入文件模式,(默认'w',函数嵌套时会用到'a'从尾部追加，平时调用时一定用默认'w')
