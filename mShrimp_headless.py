@@ -189,6 +189,8 @@ def upMacro(menpai,menpai2,fmode):
     #迭代调用，用于追加心法2，无心法2则参数天None
     if menpai2 != None :
         upMacro(menpai2,None,'a')
+    elif fmode == 'w':
+        browser.quit()
 class menpaixinfa:
     def __init__(self,pageID,dirn,menpainame,xinfa,miji):
         self.dirn = dirn
@@ -202,4 +204,5 @@ yunshang = menpaixinfa('22084','qixiu','七秀','云裳心经','秘籍：回雪�
 upMacro(bingxin,yunshang,'w')#参数：门派心法1（必填）,门派心法2（可选,没有就填None）,写入文件模式,(默认'w',函数嵌套时会用到'a'从尾部追加，平时调用时一定用默认'w')
 
 mowen = menpaixinfa('20123','changge','长歌','莫问（大微流）','宫——2读条1伤害1会心\n商——2会心2伤害\n徵——3会心1伤害\n羽——2会心2伤害\n杯水——3读条1效果\n青霄——3效果1减CD\n')
+browser = webdriver.Chrome(options=option)
 upMacro(mowen,None,'w')
