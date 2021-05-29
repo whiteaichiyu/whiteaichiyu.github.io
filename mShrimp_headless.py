@@ -182,6 +182,7 @@ def upMacro(menpai,menpai2,fmode):
             bodyindex = bodyindex+1
     #test
     if fmode == 'a':
+        browser.close()
         browser.quit()
     else:
         f.write('\n---\n')
@@ -190,6 +191,7 @@ def upMacro(menpai,menpai2,fmode):
     if menpai2 != None :
         upMacro(menpai2,None,'a')
     elif fmode == 'w':
+        browser.close()
         browser.quit()
 class menpaixinfa:
     def __init__(self,pageID,dirn,menpainame,xinfa,miji):

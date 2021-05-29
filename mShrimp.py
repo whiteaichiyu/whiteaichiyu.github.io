@@ -63,12 +63,11 @@ def upMacro(menpai,menpai2,fmode):
         print('该作者已停更',unupday,'天，建议换作者')
     else:
         print("作者已停更",unupday,"天")
-
     
     #---
     #打开被同步文件
-    f = open('source\\'+menpai.dirn+'\index.md', fmode, encoding='utf-8')
-    #f = open('./source/qixiu/index.md', 'w', encoding='utf-8')
+    #f = open('source\\'+menpai.dirn+'\index.md', fmode, encoding='utf-8')
+    f = open('./source/qixiu/index.md', 'w', encoding='utf-8')
     if fmode == 'w' :
         #主页头文件
         f.write('---\ntitle: '+menpai.menpainame+'\n')
@@ -99,7 +98,12 @@ def upMacro(menpai,menpai2,fmode):
         canusestracupoint = "/html/body/div[@id='app']/main[@class='c-main']/div[@class='m-single-box']/div[@class='m-single-prepend']/div[@class='m-single-macro']/div[@class='el-tabs el-tabs--card el-tabs--top']/div[@class='el-tabs__content']/div[@id='pane-%d']/div[@id='talent-box-%d']/div[@class='w-qixue-box false']/ul[@class='w-qixue-clist']/li[@class='w-qixue-clist-item w-qixue-is_skill']/span[@class='u-title']" % (index2,index2)
         acupoint_eles = browser.find_elements_by_xpath(stracupoint+"|"+canusestracupoint)
 
+        print('len=',len(acupoint_eles),'acu=',acupoint_eles)
         for acu_index in range(len(acupoint_eles)):
+            print('its acu no',acu_index)
+            print('222'+acupoint_eles[acu_index].text)
+            print('奇穴2维数组：',acupoint_eless)
+            print('111',acupoint_eless[index2][acu_index])
             acupoint_eless[index2][acu_index] = acupoint_eles[acu_index].text
         print(acupoint_eless)
         newacu = 0
@@ -178,7 +182,9 @@ def upMacro(menpai,menpai2,fmode):
             bodyindex = bodyindex+1
     #test
     if fmode == 'a':
+        browser.close()
         browser.quit()
+        
     else:
         f.write('\n---\n')
     f.close()
@@ -186,6 +192,7 @@ def upMacro(menpai,menpai2,fmode):
     if menpai2 != None :
         upMacro(menpai2,None,'a')
     elif fmode == 'w':
+        browser.close()
         browser.quit()
 class menpaixinfa:
     def __init__(self,pageID,dirn,menpainame,xinfa,miji):
@@ -196,7 +203,7 @@ class menpaixinfa:
         self.miji = miji
 
 bingxin = menpaixinfa('10800','qixiu','七秀','冰心诀','玳弦急曲—3伤害+1距离\n剑气长江—1回剑舞+1减CD，其他点伤害会心距离均可\n江海凝光—2伤害+1会心+1距离\n繁音急节—3减CD+1满堂会心\n天地低昂—2减CD+1持续时间，另一本随意\n心鼓弦——3减读条+1距离\n')
-yunshang = menpaixinfa('22084','qixiu','七秀','云裳心经','回雪飘摇：3疗效1距离\n翔鸾舞柳：2疗效2距离\n上元点鬟：1疗效3距离\n王母挥袂：2疗效2会心\n繁音急节：3减cd1满堂\n心鼓弦：3减cd1距离（配合璇妗奇穴可达到5分钟战复）\n天地低昂：2减cd1持续时间1回蓝\n江海凝光：3距离1伤害\n')
+yunshang = menpaixinfa('22084','qixiu','七秀','云裳心经','秘籍：回雪飘摇：3疗效1距离\n翔鸾舞柳：2疗效2距离\n上元点鬟：1疗效3距离\n王母挥袂：2疗效2会心\n繁音急节：3减cd1满堂\n心鼓弦：3减cd1距离（配合璇妗奇穴可达到5分钟战复）\n天地低昂：2减cd1持续时间1回蓝\n江海凝光：3距离1伤害\n')
 upMacro(bingxin,yunshang,'w')#参数：门派心法1（必填）,门派心法2（可选,没有就填None）,写入文件模式,(默认'w',函数嵌套时会用到'a'从尾部追加，平时调用时一定用默认'w')
 
 mowen = menpaixinfa('20123','changge','长歌','莫问（大微流）','宫——2读条1伤害1会心\n商——2会心2伤害\n徵——3会心1伤害\n羽——2会心2伤害\n杯水——3读条1效果\n青霄——3效果1减CD\n')
