@@ -57,7 +57,7 @@ def upMacro(menpai,menpai2,fmode):
     
     if unupday<20:
         print("作者已停更",unupday,"天")
-        os.system('if [ $(ll source_bak/ | grep -c '+menpai.dir+') -eq 1 ]; then cp source/'+menpai.dirn+'/index.md source_bak/'+menpai.dirn+'/index'+time.strftime("%Y-%m-%d", time.localtime()) +'.md; else mkdir source_bak/'+menpai.dir+'; fi')
+        os.system('if [ $(ll source_bak/ | grep -c '+menpai.dirn+') -eq 1 ]; then cp source/'+menpai.dirn+'/index.md source_bak/'+menpai.dirn+'/index'+time.strftime("%Y-%m-%d", time.localtime()) +'.md; else mkdir source_bak/'+menpai.dirn+'; fi')
         os.system('cp source/'+menpai.dirn+'/index.md source_bak/'+menpai.dirn+'/index'+time.strftime("%Y-%m-%d", time.localtime()) +'.md')
         #os.system('cp source\\'+menpai.dirn+'\index.md source_bak\\'+menpai.dirn+'\index'+time.strftime("%Y-%m-%d", time.localtime()) +'.md')
     elif unupday>30:
