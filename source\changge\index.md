@@ -1,6 +1,6 @@
 ---
 title: 长歌
-date: 2021-05-25 23:06:59
+date: 2021-05-30 01:22:57
 ---
 {% img [fullimage] /images/changge-foot.jpg [title 长歌 [alt text]] %}
 ## 心法：莫问（大微流）
