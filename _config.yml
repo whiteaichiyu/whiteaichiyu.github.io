@@ -109,6 +109,7 @@ deploy:
     coding: git@e.coding.net:whiteaichiyu/whiteaichiyu/whiteaichiyu.git,master
     repo: root@47.117.72.13:/var/repo/blog.git,master
     codeup: git@codeup.aliyun.com:6217e517c5006adb19ff98d1/whiteaichiyu/whiteaichiyu.git,master
+    codeup2: git@codeup.aliyun.com:6217e517c5006adb19ff98d1/workbench/repo_2022-03-05_2022030501651313.git,master
 algolia:
   applicationID: "V4MIQS4IRJ"
   apiKey: "cd65f699d5a953df961bc08c4faaa0ef"
